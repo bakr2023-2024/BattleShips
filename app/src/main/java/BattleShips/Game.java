@@ -57,9 +57,7 @@ public class Game extends javax.swing.JFrame {
 
 	void updateActionLog(String str) {
 		textArea_1.append(str + "\n");
-		if (str.endsWith(":("))
-			playSound("/defeat.wav");
-		else if (str.endsWith("^"))
+		if (str.endsWith("^"))
 			playSound("/hit.wav");
 		else if (str.endsWith("*"))
 			playSound("/miss.wav");

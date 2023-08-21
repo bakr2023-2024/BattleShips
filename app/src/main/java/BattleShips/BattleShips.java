@@ -257,12 +257,32 @@ public class BattleShips {
 			}
 		}
 		ArrayList<Record> record = new ArrayList<>();
-		String accVal = String.format("%.2f", (double) (maxAccuracyPlayer.hits / maxAccuracyPlayer.attacks) * 100);
-		record.add(new Record(maxAccuracyPlayer.name, "Highest accuracy", accVal + "%"));
-		record.add(new Record(maxSunkPlayer.name, "Most ships sunk", maxSunkPlayer.sunk + ""));
-		record.add(new Record(maxComboHitsPlayer.name, "Most combo hits", maxComboHitsPlayer.comboHits + ""));
-		record.add(new Record(maxShotsPlayer.name, "Most shots fired", maxShotsPlayer.attacks + ""));
-		record.add(new Record(maxKillsPlayer.name, "Most kills", maxKillsPlayer.kills + ""));
+		if (maxAccuracyPlayer != null) {
+			String accVal = String.format("%.2f", (double) (maxAccuracyPlayer.hits / maxAccuracyPlayer.attacks) * 100);
+			record.add(new Record(maxAccuracyPlayer.name, "Highest accuracy", accVal + "%"));
+		} else {
+			record.add(new Record("NONE", "Highest accuracy", "0"));
+		}
+		if (maxSunkPlayer != null) {
+			record.add(new Record(maxSunkPlayer.name, "Most ships sunk", maxSunkPlayer.sunk + ""));
+		} else {
+			record.add(new Record("NONE", "Most ships sunk", "0"));
+		}
+		if (maxSunkPlayer != null) {
+			record.add(new Record(maxComboHitsPlayer.name, "Most combo hits", maxComboHitsPlayer.comboHits + ""));
+		} else {
+			record.add(new Record("NONE", "Most combo hits", "0"));
+		}
+		if (maxSunkPlayer != null) {
+			record.add(new Record(maxShotsPlayer.name, "Most shots fired", maxShotsPlayer.attacks + ""));
+		} else {
+			record.add(new Record("NONE", "Most shots fired", "0"));
+		}
+		if (maxSunkPlayer != null) {
+			record.add(new Record(maxKillsPlayer.name, "Most kills", maxKillsPlayer.kills + ""));
+		} else {
+			record.add(new Record("NONE", "Most kills", "0"));
+		}
 		return record;
 	}
 
